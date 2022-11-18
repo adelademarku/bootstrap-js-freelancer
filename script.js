@@ -13,6 +13,8 @@ Mostrare il risultato del calcolo del prezzo finale in una “forma umana” in 
 
 
 //-----------------------------FORUM---------------------------------------------------
+
+//array dei codici promozionale
 let arrayCodiciSconto = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 
 
@@ -23,7 +25,7 @@ function submitFormBottone(event) {
     event.preventDefault();
 
 
-
+// in base al lavoro scelto cambio il prezzo
     let price = 0;
 
 
@@ -42,7 +44,7 @@ function submitFormBottone(event) {
 
     console.log("Il prezzo è di " + price);
 
-
+//vedo se il cliente ha aggiunto il codice sconto se si cambio il totale aggiungento lo sconto
     let x = document.forms["myForm"]["fname"].value;
 
     for (let i = 0; i < arrayCodiciSconto.length; i++) {
@@ -50,20 +52,20 @@ function submitFormBottone(event) {
 
         if (x == arrayCodiciSconto[i]) {
             console.log("il prezzo finale è: " + calculateDiscount(price, 25));
-            document.getElementById("prezzoFinale").innerHTML = "il prezzo è di :" + calculateDiscount(price, 25);
+            document.getElementById("prezzoFinale").innerHTML = "il prezzo è di : " + calculateDiscount(price, 25) + " €";
 
             break;
 
         } else if (x == "" || x == null) {
             console.log("il codice non è stato inserito ");
-            document.getElementById("prezzoFinale").innerHTML = "il prezzo è di :" + price;
+            document.getElementById("prezzoFinale").innerHTML = "il prezzo è di : " + price + " €";
 
         } else if (x != arrayCodiciSconto[i]) { 
             console.log("condice errato"); 
-            document.getElementById("prezzoFinale").innerHTML = "il prezzo è di :" + price;
+            document.getElementById("prezzoFinale").innerHTML = "il prezzo è di : " + price + " €";
         }
     }
-//Inoltre se il codice fornito è valido, eliminare quel codice dall’elenco dei codici sconto disponibili, il codice sconto non sarà più usabile. */
+// Bonus :se il codice fornito è valido, eliminare quel codice dall’elenco dei codici sconto disponibili, il codice sconto non sarà più usabile. */
 
     for( var i = 0; i < arrayCodiciSconto.length; i++){ 
         if ( arrayCodiciSconto[i] === x ) {
@@ -76,23 +78,6 @@ function submitFormBottone(event) {
 
 
 
-/*-------------------------------BONUS-------------------------------------------
-Creare una struttura dati adeguata per contenere tutte le informazioni relative ai progetti presenti nella sezione “Portfolio”. 
-Rimuovere quindi le card dal markup nel file html e stamparle in pagina dinamicamente tramite l’utilizzo di JavaScript.
-
-dovete far diventare il codice sconto inserito di colore rosso, qualora quello inserito non sia valido.
-
-
-
-
-
-
-
-
-
-
-function changeColor(element, color) {
-    element.style.color = color;}
 
 
 //-------------------------funzioni-------------------------------------------
@@ -107,52 +92,4 @@ const calculateDiscount = (total, percentage) => {
 
 
 
-/*
 
-
-
-function ricercaInArray(array, elementoDaTrovare){
-    
-    for(let i=0; i < array.length; i++){
-        if(array[i] == elementoDaTrovare){ 
-            return true; 
-        }
-    }
-
-    return false;
-
-
-
-
-}
-
-function validate (){
-    let codicescontoinserito = document.getElementById("inputDiscountCode").value;
-    if (codicescontoinserito.value== "")
-     {return false;}
-    else if (codicescontoinserito.value == arrayCodiciSconto.length) 
-    {return true;}
-    else if (codicescontoinserito.value != arrayCodiciSconto.length) {return false;}
-}
-
-
-*/
-
-
-/*
-function validateForm() {
-    let x = document.forms["myForm"]["fname"].value;
-
-    for(let i = 0; i< arrayCodiciSconto.length; i++){
-        /*console.log(arrayCodiciSconto[i])*/
-/*
-  if (x == "" || x == null) {
-  console.log("il codice non è stato inserito ");
-    
-} else if (x != arrayCodiciSconto[i]) {console.log ("condice errato");
-} else if (x == arrayCodiciSconto[i]) 
-{ console.log("il prezzo scontato è :" + price) ;}
-return true;
-}
-
-}  */
