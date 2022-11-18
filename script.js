@@ -10,7 +10,7 @@ Mostrare il risultato del calcolo del prezzo finale in una “forma umana” in 
 - Ricordatevi che se non state bene attenti, Javascript vi fa le magie con i tipi :faccia_leggermente_sorridente:
 - Ricordatevi che il form ha un comportamento “strano” quando fate click sul bottone Send che è di tipo submit (type=submit). */
 
-
+let arrayCodiciSconto =["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 
 
 
@@ -19,13 +19,24 @@ function submitFormBottone (event){
 event.preventDefault();
 
 
+
+let price = 0;
+
+
 let lavoro = document.getElementById("inputTypeofwork").value ;  
+let hours = document.getElementById("inputHours").value ;
 
 
+if(lavoro == "frontend"){
+    price = 20.5 * hours; 
+} else if(lavoro == "backend") {
+    price = 15.3 * hours;
 
+} else if (lavoro == "analisi"){
+    lavoro = 15.3 * hours;
+}
 
-price.innerHTML = (lavoro * hours) + ',00';
-
+console.log("Il prezzo è di " +price );
 
 
 
