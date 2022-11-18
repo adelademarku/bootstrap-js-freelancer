@@ -10,6 +10,9 @@ Mostrare il risultato del calcolo del prezzo finale in una “forma umana” in 
 - Ricordatevi che se non state bene attenti, Javascript vi fa le magie con i tipi 
 - Ricordatevi che il form ha un comportamento “strano” quando fate click sul bottone Send che è di tipo submit (type=submit). */
 
+
+
+//-----------------------------FORUM---------------------------------------------------
 let arrayCodiciSconto = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 
 
@@ -54,22 +57,42 @@ function submitFormBottone(event) {
         } else if (x == "" || x == null) {
             console.log("il codice non è stato inserito ");
             document.getElementById("prezzoFinale").innerHTML = "il prezzo è di :" + price;
-        } else if (x != arrayCodiciSconto[i]) {
-            console.log("condice errato");
+
+        } else if (x != arrayCodiciSconto[i]) { 
+            console.log("condice errato"); 
             document.getElementById("prezzoFinale").innerHTML = "il prezzo è di :" + price;
         }
     }
+//Inoltre se il codice fornito è valido, eliminare quel codice dall’elenco dei codici sconto disponibili, il codice sconto non sarà più usabile. */
+
+    for( var i = 0; i < arrayCodiciSconto.length; i++){ 
+        if ( arrayCodiciSconto[i] === x ) {
+          arrayCodiciSconto.splice(i, 1);  console.log(arrayCodiciSconto)
+        }
+     }
 
 }
 
 
 
 
+/*-------------------------------BONUS-------------------------------------------
+Creare una struttura dati adeguata per contenere tutte le informazioni relative ai progetti presenti nella sezione “Portfolio”. 
+Rimuovere quindi le card dal markup nel file html e stamparle in pagina dinamicamente tramite l’utilizzo di JavaScript.
+
+dovete far diventare il codice sconto inserito di colore rosso, qualora quello inserito non sia valido.
 
 
 
 
 
+
+
+
+
+
+function changeColor(element, color) {
+    element.style.color = color;}
 
 
 //-------------------------funzioni-------------------------------------------
@@ -83,9 +106,6 @@ const calculateDiscount = (total, percentage) => {
 }
 
 
-function changecolor(colour) {
-    document.bgcolor = colour;
-}
 
 /*
 
