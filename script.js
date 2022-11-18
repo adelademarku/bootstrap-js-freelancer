@@ -15,6 +15,7 @@ let arrayCodiciSconto =["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 
 
 
+
 function submitFormBottone (event){
 event.preventDefault();
 
@@ -39,6 +40,87 @@ if(lavoro == "frontend"){
 console.log("Il prezzo è di " +price );
 
 
+let x = document.forms["myForm"]["fname"].value;
+
+for(let i = 0; i< arrayCodiciSconto.length; i++){
+    console.log(arrayCodiciSconto[i])
+
+  if (x == "" || x == null) {
+  console.log("il codice non è stato inserito ");
+    
+} else if (x != arrayCodiciSconto[i]) {console.log ("condice errato");
+} else if (x == arrayCodiciSconto[i]) 
+{ console.log("il prezzo finale è: "+ calculateDiscount(price,25));}
 
 }
 
+
+
+
+}
+
+
+
+
+//-------------------------funzioni-------------------------------------------
+
+const calculateDiscount = (total, percentage) => {
+        
+    let discountValue = (total / 100) * percentage;
+    let finalPrice = total - discountValue;
+        
+    return finalPrice.toFixed(2);
+}
+
+
+
+
+/*
+
+
+
+function ricercaInArray(array, elementoDaTrovare){
+    
+    for(let i=0; i < array.length; i++){
+        if(array[i] == elementoDaTrovare){ 
+            return true; 
+        }
+    }
+
+    return false;
+
+
+
+
+}
+
+function validate (){
+    let codicescontoinserito = document.getElementById("inputDiscountCode").value;
+    if (codicescontoinserito.value== "")
+     {return false;}
+    else if (codicescontoinserito.value == arrayCodiciSconto.length) 
+    {return true;}
+    else if (codicescontoinserito.value != arrayCodiciSconto.length) {return false;}
+}
+
+
+*/
+
+
+/*
+function validateForm() {
+    let x = document.forms["myForm"]["fname"].value;
+
+    for(let i = 0; i< arrayCodiciSconto.length; i++){
+        /*console.log(arrayCodiciSconto[i])*/ 
+    /*
+      if (x == "" || x == null) {
+      console.log("il codice non è stato inserito ");
+        
+    } else if (x != arrayCodiciSconto[i]) {console.log ("condice errato");
+    } else if (x == arrayCodiciSconto[i]) 
+    { console.log("il prezzo scontato è :" + price) ;}
+    return true;
+    }
+
+  }  */
