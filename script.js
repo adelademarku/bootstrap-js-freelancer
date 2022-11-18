@@ -47,12 +47,17 @@ for(let i = 0; i< arrayCodiciSconto.length; i++){
 
   if (x == "" || x == null) {
   console.log("il codice non è stato inserito ");
-    
-} else if (x != arrayCodiciSconto[i]) {console.log ("condice errato");
+  document.getElementById("prezzoFinale").innerHTML = "il prezzo è di :" + price; 
+} else if (x != arrayCodiciSconto[i]) {console.log ("condice errato"); 
+  document.getElementById("prezzoFinale").innerHTML = "il prezzo è di :" + price;
 } else if (x == arrayCodiciSconto[i]) 
-{ console.log("il prezzo finale è: "+ calculateDiscount(price,25));}
+{ console.log("il prezzo finale è: "+ calculateDiscount(price,25));
+  document.getElementById("prezzoFinale").innerHTML = "il prezzo è di :" + calculateDiscount(price,25);
+}
 
 }
+ 
+
 
 
 
